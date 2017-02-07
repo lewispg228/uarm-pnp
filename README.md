@@ -1,6 +1,8 @@
 # uarm-pnp
 ==================
 
+![Petes desk early on](https://raw.githubusercontent.com/lewispg228/uarm-pnp/master/Pictures/uarm_2_7_2017.jpg)  
+
 ![uArm - Desktop Robotic Arm](https://cdn.sparkfun.com//assets/parts/1/1/0/9/1/13663-04.jpg)  
 
 [*uArm - Desktop Robotic Arm*](https://www.sparkfun.com/products/13663)
