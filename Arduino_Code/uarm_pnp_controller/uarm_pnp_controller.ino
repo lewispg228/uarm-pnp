@@ -34,10 +34,10 @@ void loop() {
     Serial.println(input);
     switch (input) {
       case 'a':
-        x = 150.0; y = 150.0; z = 150.0; s = 1.0;
+        x = 150.0; y = 150.0; z = 150.0; s = 001.0;
         break;
       case 'b':
-        x = -160.0; y = 200.0; z = 60.0; s = 1.0;
+        x = -160.0; y = 200.0; z = 60.0; s = 001.0;
         break;
       case '4':
         x -= step_size;
@@ -125,8 +125,8 @@ void set_position()
   Serial.print(y,1);
   Serial.print(" Z");
   Serial.print(z,1);
-  Serial.print(" F");
-  Serial.print(s,1);
+  Serial.print(" F001.0");
+  //Serial.print(s,1);
   Serial.print("\n");
 }
 
