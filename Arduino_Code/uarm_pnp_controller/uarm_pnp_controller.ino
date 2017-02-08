@@ -21,6 +21,11 @@ float x_4 = 100.0;
 float y_4 = 100.0;
 float z_4 = 100.0;
 
+/// commands learned from sniffing the pyuarm comm
+
+// get position angle: P200
+// set angle of servo: G202 N0 V55   //  N<servo number 0 -3> V<angle 0-180>  , note, servo 0 is the rotational servo in the base, 1 is left, 2 is right, 3 is hand
+
 void setup() {
   Serial.begin(115200); // debug
   Serial.println("uarm testing");
@@ -211,5 +216,14 @@ void store_pos(int pos)
       z_4 = z;
       break;  
   }
+}
+
+void set_position_angle();
+{
+  send_cmd_count();
+  Serial1.print(" G202");
+  Serial1.print(" N0 V");
+  Serial1.print(servo_1_angle);
+  Serial1.print("\n");
 }
 
