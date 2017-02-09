@@ -1,3 +1,6 @@
+#include <EEPROM.h>
+
+
 float x = 150.0;
 float y = 150.0;
 float z = 150.0;
@@ -26,6 +29,16 @@ float z_4 = 100.0;
 // get position angle: P200
 // set angle of servo: G202 N0 V55   //  N<servo number 0 -3> V<angle 0-180>  , note, servo 0 is the rotational servo in the base, 1 is left, 2 is right, 3 is hand
 
+int servo_0_angle = 90; // base
+int servo_1_angle = 90; // left
+int servo_2_angle = 45; // right
+int servo_3_angle = 90; // hand
+
+int servo_0_angle_previous = 90; // base
+int servo_1_angle_previous = 90; // left
+int servo_2_angle_previous = 45; // right
+int servo_3_angle_previous = 90; // hand
+
 void setup() {
   Serial.begin(115200); // debug
   Serial.println("uarm testing");
@@ -44,63 +57,70 @@ void loop() {
       case 'b':
         x = -160.0; y = 200.0; z = 60.0; s = 001.0;
         break;
-      case '4':
-        x -= step_size;
+      case '0':
+        servo_0_angle -= step_size;
         break;   
-      case '6':
-        x += step_size;
+      case '.':
+        servo_0_angle += step_size;
+        break;   
+      case '1':
+        servo_1_angle -= step_size;
         break;   
       case '2':
-        y -= step_size;
+        servo_1_angle += step_size;
+        break; 
+      case '4':
+        servo_2_angle -= step_size;
+        break;   
+      case '5':
+        servo_2_angle += step_size;
+        break; 
+      case '7':
+        servo_3_angle -= step_size;
         break;   
       case '8':
-        y += step_size;
-        break; 
-      case '-':
-        z -= step_size;
-        break;   
-      case '+':
-        z += step_size;
-        break; 
+        servo_3_angle += step_size;
+        break;         
       case '*':
         pump_on();
         break;       
       case '/':
         pump_off();
         break;   
-      case 's': // toggle step size between 1, 10 and 50
+      case 's': // toggle step size between 1, 10 and 20
         if(step_size == 1) {step_size = 10;}
-        else if(step_size == 10) {step_size = 50;}
-        else if(step_size == 50) {step_size = 1;}
+        else if(step_size == 10) {step_size = 20;}
+        else if(step_size == 20) {step_size = 1;}
         Serial.print("step_size: ");
         Serial.println(step_size);
         break;           
       case '!':
-        goto_pos(1);
+        glide_to_pos_angle(1,100!
+        );
         break;  
       case '@':
-        goto_pos(2);
+        glide_to_pos_angle(2,100);
         break;     
       case '#':
-        goto_pos(3);
+        goto_pos_angle(3);
         break;  
       case '$':
-        goto_pos(4);
+        goto_pos_angle(4);
         break;               
       case 'q':
-        store_pos(1);
+        store_pos_angle(1);
         break;  
       case 'w':
-        store_pos(2);
+        store_pos_angle(2);
         break;       
       case 'e':
-        store_pos(3);
+        store_pos_angle(3);
         break;  
       case 'r':
-        store_pos(4);
+        store_pos_angle(4);
         break;                
     }
-    set_position();
+    set_position_angle(servo_0_angle, servo_1_angle, servo_2_angle, servo_3_angle);
   }
   delay(1);
 }
@@ -218,12 +238,166 @@ void store_pos(int pos)
   }
 }
 
-void set_position_angle();
+void set_position_angle(int s0, int s1, int s2, int s3)
 {
+  // DEBUG
+  Serial.print("servo angles: ");
+  Serial.print(s0);
+  Serial.print(", ");
+  Serial.print(s1);
+  Serial.print(", ");
+  Serial.print(s2);
+  Serial.print(", ");
+  Serial.println(s3);
+  
   send_cmd_count();
   Serial1.print(" G202");
   Serial1.print(" N0 V");
-  Serial1.print(servo_1_angle);
+  Serial1.print(s0);
   Serial1.print("\n");
+
+  send_cmd_count();
+  Serial1.print(" G202");
+  Serial1.print(" N1 V");
+  Serial1.print(s1);
+  Serial1.print("\n");
+
+  send_cmd_count();
+  Serial1.print(" G202");
+  Serial1.print(" N2 V");
+  Serial1.print(s2);
+  Serial1.print("\n");
+
+  send_cmd_count();
+  Serial1.print(" G202");
+  Serial1.print(" N3 V");
+  Serial1.print(s3);
+  Serial1.print("\n");
+}
+
+
+void store_pos_angle(int pos)
+{
+  switch (pos) {
+    case 1:
+      EEPROM.write(0, servo_0_angle);
+      EEPROM.write(1, servo_1_angle);
+      EEPROM.write(2, servo_2_angle);
+      EEPROM.write(3, servo_3_angle);
+      break;
+    case 2:
+      EEPROM.write(4, servo_0_angle);
+      EEPROM.write(5, servo_1_angle);
+      EEPROM.write(6, servo_2_angle);
+      EEPROM.write(7, servo_3_angle);
+      break;
+    case 3:
+      EEPROM.write(8, servo_0_angle);
+      EEPROM.write(9, servo_1_angle);
+      EEPROM.write(10, servo_2_angle);
+      EEPROM.write(11, servo_3_angle);
+      break;    
+    case 4:
+      EEPROM.write(12, servo_0_angle);
+      EEPROM.write(13, servo_1_angle);
+      EEPROM.write(14, servo_2_angle);
+      EEPROM.write(15, servo_3_angle);
+      break;  
+  }
+}
+
+void goto_pos_angle(int pos)
+{
+  switch (pos) {
+    case 1:
+      servo_0_angle = EEPROM.read(0);
+      servo_1_angle = EEPROM.read(1);
+      servo_2_angle = EEPROM.read(2);
+      servo_3_angle = EEPROM.read(3);
+      break;
+    case 2:
+      servo_0_angle = EEPROM.read(4);
+      servo_1_angle = EEPROM.read(5);
+      servo_2_angle = EEPROM.read(6);
+      servo_3_angle = EEPROM.read(7);
+      break;
+    case 3:
+      servo_0_angle = EEPROM.read(8);
+      servo_1_angle = EEPROM.read(9);
+      servo_2_angle = EEPROM.read(10);
+      servo_3_angle = EEPROM.read(11);
+      break;
+    case 4:
+      servo_0_angle = EEPROM.read(12);
+      servo_1_angle = EEPROM.read(13);
+      servo_2_angle = EEPROM.read(14);
+      servo_3_angle = EEPROM.read(15);
+      break;      
+  }
+  set_position_angle(servo_0_angle, servo_1_angle, servo_2_angle, servo_3_angle);
+}
+
+// glide from one position to the next, with some control of speed.
+// basically, break up the travel distance and add in some delays to slow it down.
+void glide_to_pos_angle(int destination, int delay_time)
+{
+    int destination_0_angle;
+    int destination_1_angle;
+    int destination_2_angle;
+    int destination_3_angle;
+    boolean glide_complete = false;
+      
+    switch (destination) {
+    case 1:
+      destination_0_angle = EEPROM.read(0);
+      destination_1_angle = EEPROM.read(1);
+      destination_2_angle = EEPROM.read(2);
+      destination_3_angle = EEPROM.read(3);
+      break;
+    case 2:
+      destination_0_angle = EEPROM.read(4);
+      destination_1_angle = EEPROM.read(5);
+      destination_2_angle = EEPROM.read(6);
+      destination_3_angle = EEPROM.read(7);
+      break;
+    case 3:
+      destination_0_angle = EEPROM.read(8);
+      destination_1_angle = EEPROM.read(9);
+      destination_2_angle = EEPROM.read(10);
+      destination_3_angle = EEPROM.read(11);
+      break;
+    case 4:
+      destination_0_angle = EEPROM.read(12);
+      destination_1_angle = EEPROM.read(13);
+      destination_2_angle = EEPROM.read(14);
+      destination_3_angle = EEPROM.read(15);
+      break;      
+  }
+
+  while(glide_complete == false)
+  {
+    if(destination_0_angle > servo_0_angle) servo_0_angle++;
+    else if(destination_0_angle < servo_0_angle)servo_0_angle--;
+
+    if(destination_1_angle > servo_1_angle) servo_1_angle++;
+    else if(destination_1_angle < servo_1_angle)servo_1_angle--;
+
+    if(destination_2_angle > servo_2_angle) servo_2_angle++;
+    else if(destination_2_angle < servo_2_angle)servo_2_angle--;
+
+    if(destination_3_angle > servo_3_angle) servo_3_angle++;
+    else if(destination_3_angle < servo_3_angle)servo_3_angle--;
+
+    set_position_angle(servo_0_angle, servo_1_angle, servo_2_angle, servo_3_angle);
+    delay(delay_time);
+    
+    if( (destination_0_angle == servo_0_angle) &&
+        (destination_1_angle == servo_1_angle) &&
+        (destination_2_angle == servo_2_angle) &&
+        (destination_3_angle == servo_3_angle) )
+        {
+          glide_complete = true;
+        }  
+  }
 }
 
