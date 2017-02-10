@@ -101,7 +101,7 @@ void loop() {
         glide_to_pos_angle(2,100);
         break;     
       case '#':
-        goto_pos_angle(3);
+        glide_to_pos_angle(3,100);
         break;  
       case '$':
         goto_pos_angle(4);
@@ -388,6 +388,10 @@ void glide_to_pos_angle(int destination, int delay_time)
       break;      
   }
 
+  int  angle_increment = 1;
+  int max_angle_increment = 5;
+  int min_decel_steps = 10;
+  
   while(glide_complete == false)
   {
     if(destination_0_angle > servo_0_angle) servo_0_angle++;
@@ -399,8 +403,18 @@ void glide_to_pos_angle(int destination, int delay_time)
     if(destination_2_angle > servo_2_angle) servo_2_angle++;
     else if(destination_2_angle < servo_2_angle)servo_2_angle--;
 
-    if(destination_3_angle > servo_3_angle) servo_3_angle++;
-    else if(destination_3_angle < servo_3_angle)servo_3_angle--;
+    if(destination_3_angle > servo_3_angle) 
+    {
+      if((destination_3_angle > (servo_3_angle + min_decel_steps)) && (angle_increment < max_angle_increment)) angle_increment++;
+      else if(destination_3_angle < (servo_3_angle + min_decel_steps)) angle_increment--;
+      servo_3_angle =+ angle_increment;
+    }
+    else if(destination_3_angle < servo_3_angle)
+    {
+      if((destination_3_angle < (servo_3_angle - min_decel_steps)) && (angle_increment < max_angle_increment)) angle_increment++;
+      else if(destination_3_angle > (servo_3_angle - min_decel_steps)) angle_increment--;
+      servo_3_angle -= angle_increment;
+    }
 
     set_position_angle(servo_0_angle, servo_1_angle, servo_2_angle, servo_3_angle);
 
