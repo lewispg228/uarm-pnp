@@ -403,6 +403,14 @@ void glide_to_pos_angle(int destination, int delay_time)
     else if(destination_3_angle < servo_3_angle)servo_3_angle--;
 
     set_position_angle(servo_0_angle, servo_1_angle, servo_2_angle, servo_3_angle);
+
+    // acceleration/deceleration stuff.
+    // if I look how far away I am from the destination,
+    // then I can deside if I have enough distance to speed up
+    // and I can also decide if it's time to slow down on the approach.
+    // this will all be controlled by changing the delay time.
+
+    // if any of my destinations are getting close to the end, then we need to slow down
     delay(delay_time);
     
     if( (destination_0_angle == servo_0_angle) &&
