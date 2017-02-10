@@ -49,7 +49,7 @@ void loop() {
   if(Serial.available() > 0)
   {
     int input = Serial.read();
-    Serial.println(input);
+    Serial.println(char(input));
     switch (input) {
       case 'a':
         x = 150.0; y = 150.0; z = 150.0; s = 001.0;
@@ -95,8 +95,7 @@ void loop() {
         Serial.println(step_size);
         break;           
       case '!':
-        glide_to_pos_angle(1,100!
-        );
+        glide_to_pos_angle(1,100);
         break;  
       case '@':
         glide_to_pos_angle(2,100);
@@ -118,11 +117,20 @@ void loop() {
         break;  
       case 'r':
         store_pos_angle(4);
-        break;                
+        break;      
+      case 'p':
+        get_pos_angle();
+        break;              
     }
     set_position_angle(servo_0_angle, servo_1_angle, servo_2_angle, servo_3_angle);
   }
   delay(1);
+  
+  if(Serial1.available() > 0)
+  {
+    int input = Serial1.read();
+    Serial.print(char(input));
+  }
 }
 
 void set_position()
@@ -166,6 +174,12 @@ void pump_off()
 {
   Serial1.print("#74");
   Serial1.print(" M231 V0\n");
+}
+
+void get_pos_angle()
+{
+  send_cmd_count();
+  Serial1.print(" P200\n");
 }
 
 void get_pos()
