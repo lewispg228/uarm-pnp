@@ -1,5 +1,18 @@
 #include <EEPROM.h>
 
+// servo_movement_status is used in glide functions to make smoother motion
+// note, if a servo is stopped, then it is ready to accelerate, so it's in
+// the "ACCERATING" status
+#define ACCELERATING 0
+#define AT_FULL_SPEED 1
+#define DECELERATING 2
+int servo_movement_status [4] = {ACCELERATING, ACCELERATING, ACCELERATING, ACCELERATING};
+int angle_increment[4] = {1,1,1,1};
+
+int destination_0_angle;
+int destination_1_angle;
+int destination_2_angle;
+int destination_3_angle;
 
 float x = 150.0;
 float y = 150.0;
@@ -29,9 +42,9 @@ float z_4 = 100.0;
 // get position angle: P200
 // set angle of servo: G202 N0 V55   //  N<servo number 0 -3> V<angle 0-180>  , note, servo 0 is the rotational servo in the base, 1 is left, 2 is right, 3 is hand
 
-int servo_0_angle = 90; // base
-int servo_1_angle = 90; // left
-int servo_2_angle = 45; // right
+int servo_0_angle = 100; // base
+int servo_1_angle = 120; // left
+int servo_2_angle = 31; // right
 int servo_3_angle = 90; // hand
 
 int servo_0_angle_previous = 90; // base
@@ -95,16 +108,16 @@ void loop() {
         Serial.println(step_size);
         break;           
       case '!':
-        glide_to_pos_angle(1,100);
+        glide_to_pos_angle(1,70);
         break;  
       case '@':
-        glide_to_pos_angle(2,100);
+        glide_to_pos_angle(2,70);
         break;     
       case '#':
-        glide_to_pos_angle(3,100);
+        glide_to_pos_angle(3,70);
         break;  
       case '$':
-        goto_pos_angle(4);
+        glide_to_pos_angle(4,70);
         break;               
       case 'q':
         store_pos_angle(1);
@@ -263,6 +276,15 @@ void set_position_angle(int s0, int s1, int s2, int s3)
   Serial.print(s2);
   Serial.print(", ");
   Serial.println(s3);
+
+  Serial.print("angle increments: ");
+  Serial.print(angle_increment[0]);
+  Serial.print(", ");
+  Serial.print(angle_increment[1]);
+  Serial.print(", ");
+  Serial.print(angle_increment[2]);
+  Serial.print(", ");
+  Serial.println(angle_increment[3]);
   
   send_cmd_count();
   Serial1.print(" G202");
@@ -355,10 +377,6 @@ void goto_pos_angle(int pos)
 // basically, break up the travel distance and add in some delays to slow it down.
 void glide_to_pos_angle(int destination, int delay_time)
 {
-    int destination_0_angle;
-    int destination_1_angle;
-    int destination_2_angle;
-    int destination_3_angle;
     boolean glide_complete = false;
       
     switch (destination) {
@@ -388,43 +406,29 @@ void glide_to_pos_angle(int destination, int delay_time)
       break;      
   }
 
-  int  angle_increment = 1;
   int max_angle_increment = 5;
   int min_decel_steps = 10;
+  angle_increment[0] = 1;
+  angle_increment[1] = 1;
+  angle_increment[2] = 1;
+  angle_increment[3] = 1;
   
   while(glide_complete == false)
   {
-    if(destination_0_angle > servo_0_angle) servo_0_angle++;
-    else if(destination_0_angle < servo_0_angle)servo_0_angle--;
+    if(destination_0_angle > servo_0_angle) servo_0_angle += angle_increment[0];
+    else if(destination_0_angle < servo_0_angle)servo_0_angle -= angle_increment[0];
 
-    if(destination_1_angle > servo_1_angle) servo_1_angle++;
-    else if(destination_1_angle < servo_1_angle)servo_1_angle--;
+    if(destination_1_angle > servo_1_angle) servo_1_angle += angle_increment[1];
+    else if(destination_1_angle < servo_1_angle) servo_1_angle -= angle_increment[1];
 
-    if(destination_2_angle > servo_2_angle) servo_2_angle++;
-    else if(destination_2_angle < servo_2_angle)servo_2_angle--;
-
-    if(destination_3_angle > servo_3_angle) 
-    {
-      if((destination_3_angle > (servo_3_angle + min_decel_steps)) && (angle_increment < max_angle_increment)) angle_increment++;
-      else if(destination_3_angle < (servo_3_angle + min_decel_steps)) angle_increment--;
-      servo_3_angle =+ angle_increment;
-    }
-    else if(destination_3_angle < servo_3_angle)
-    {
-      if((destination_3_angle < (servo_3_angle - min_decel_steps)) && (angle_increment < max_angle_increment)) angle_increment++;
-      else if(destination_3_angle > (servo_3_angle - min_decel_steps)) angle_increment--;
-      servo_3_angle -= angle_increment;
-    }
+    if(destination_2_angle > servo_2_angle) servo_2_angle += angle_increment[2];
+    else if(destination_2_angle < servo_2_angle)servo_2_angle -= angle_increment[2];
+    
+    if(destination_3_angle > servo_3_angle) servo_3_angle += angle_increment[3];
+    else if(destination_3_angle < servo_3_angle) servo_3_angle -= angle_increment[3];
 
     set_position_angle(servo_0_angle, servo_1_angle, servo_2_angle, servo_3_angle);
 
-    // acceleration/deceleration stuff.
-    // if I look how far away I am from the destination,
-    // then I can deside if I have enough distance to speed up
-    // and I can also decide if it's time to slow down on the approach.
-    // this will all be controlled by changing the delay time.
-
-    // if any of my destinations are getting close to the end, then we need to slow down
     delay(delay_time);
     
     if( (destination_0_angle == servo_0_angle) &&
@@ -434,6 +438,38 @@ void glide_to_pos_angle(int destination, int delay_time)
         {
           glide_complete = true;
         }  
+    calculate_all_angle_increments();  
   }
 }
+
+void calculate_all_angle_increments()
+{
+  calculate_angle_increment(destination_0_angle, servo_0_angle, 0); 
+  calculate_angle_increment(destination_1_angle, servo_1_angle, 1);
+  calculate_angle_increment(destination_2_angle, servo_2_angle, 2);
+  calculate_angle_increment(destination_3_angle, servo_3_angle, 3);
+}
+
+void calculate_angle_increment(int destination_angle, int current_angle, int s) // "s" is for servo number 0-3
+ {
+  int difference = destination_angle - current_angle;
+  difference = abs(difference);
+  Serial.print("difference: ");
+  Serial.println(difference);
+  if(difference <= 15) servo_movement_status[s] = DECELERATING;
+  else if(angle_increment[s] == 5) servo_movement_status[s] = AT_FULL_SPEED;
+  else if(difference > 30) servo_movement_status[s] = ACCELERATING;
+
+  switch(servo_movement_status[s]){
+    case DECELERATING:
+      if(angle_increment[s] > 1) angle_increment[s]--;
+      break;
+    case AT_FULL_SPEED:
+      // do nothing, stay at full speed change (aka angle increment should be 5)
+      break;
+    case ACCELERATING:
+      if(angle_increment[s] < 5) angle_increment[s]++;
+      break;            
+  }
+ }
 
