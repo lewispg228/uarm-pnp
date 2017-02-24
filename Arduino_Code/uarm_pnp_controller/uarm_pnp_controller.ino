@@ -458,7 +458,7 @@ void calculate_angle_increment(int destination_angle, int current_angle, int s) 
   Serial.println(difference);
   if(difference <= 15) servo_movement_status[s] = DECELERATING;
   else if(angle_increment[s] == 5) servo_movement_status[s] = AT_FULL_SPEED;
-  else if(difference > 30) servo_movement_status[s] = ACCELERATING;
+  else servo_movement_status[s] = ACCELERATING;
 
   switch(servo_movement_status[s]){
     case DECELERATING:
