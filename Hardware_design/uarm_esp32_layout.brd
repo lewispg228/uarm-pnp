@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.5" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+<grid distance="0.25" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -298,6 +298,42 @@
 <wire x1="53.6575" y1="10.033" x2="58.42" y2="14.7955" width="0.127" layer="49" curve="-90"/>
 <hole x="58.674" y="0" drill="2.794"/>
 </package>
+<package name="ACTOBOTICS_BEAM_4.62_INCH">
+<hole x="0" y="0" drill="2.794"/>
+<hole x="9.779" y="0" drill="2.794"/>
+<hole x="19.558" y="0" drill="2.794"/>
+<hole x="29.337" y="0" drill="2.794"/>
+<hole x="39.116" y="0" drill="2.794"/>
+<hole x="48.895" y="0" drill="2.794"/>
+<hole x="58.674" y="0" drill="2.794"/>
+<hole x="68.453" y="0" drill="2.794"/>
+<hole x="78.232" y="0" drill="2.794"/>
+<hole x="88.011" y="0" drill="2.794"/>
+<hole x="97.79" y="0" drill="2.794"/>
+<hole x="107.569" y="0" drill="2.794"/>
+<hole x="117.348" y="0" drill="2.794"/>
+<circle x="0" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="9.779" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="19.558" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="29.337" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="39.116" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="48.895" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="58.674" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="68.453" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="78.232" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="88.011" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="97.79" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="107.569" y="0" radius="1.778" width="0.127" layer="49"/>
+<circle x="117.348" y="0" radius="1.778" width="0.127" layer="49"/>
+<wire x1="122.3645" y1="0.254" x2="122.3645" y2="0" width="0.127" layer="49"/>
+<wire x1="122.3645" y1="0" x2="117.602" y2="-4.7625" width="0.127" layer="49" curve="-90"/>
+<wire x1="117.602" y1="-4.7625" x2="0" y2="-4.7625" width="0.127" layer="49"/>
+<wire x1="0" y1="-4.7625" x2="-4.7625" y2="0" width="0.127" layer="49" curve="-90"/>
+<wire x1="-4.7625" y1="0" x2="-4.7625" y2="0.254" width="0.127" layer="49"/>
+<wire x1="-4.7625" y1="0.254" x2="0" y2="5.0165" width="0.127" layer="49" curve="-90"/>
+<wire x1="0" y1="5.0165" x2="117.602" y2="5.0165" width="0.127" layer="49"/>
+<wire x1="117.602" y1="5.0165" x2="122.3645" y2="0.254" width="0.127" layer="49" curve="-90"/>
+</package>
 </packages>
 </library>
 <library name="SparkFun-Hardware">
@@ -343,6 +379,79 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="0" y1="95.25" x2="6.35" y2="95.25" width="0.6096" layer="51" style="shortdash"/>
 <wire x1="38.1" y1="133.35" x2="31.75" y2="133.35" width="0.6096" layer="51" style="shortdash"/>
 <wire x1="0" y1="133.35" x2="6.35" y2="133.35" width="0.6096" layer="51" style="shortdash"/>
+</package>
+<package name="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF">
+<wire x1="38.1" y1="0" x2="38.1" y2="38.1" width="0.6096" layer="51"/>
+<wire x1="0" y1="38.1" x2="0" y2="0" width="0.6096" layer="51"/>
+<wire x1="0" y1="0" x2="38.1" y2="0" width="0.6096" layer="51"/>
+<circle x="5.588" y="5.588" radius="1.778" width="0.0254" layer="51"/>
+<circle x="25.96515" y="25.96515" radius="1.778" width="0.0254" layer="51"/>
+<circle x="5.588" y="32.512" radius="1.778" width="0.0254" layer="51"/>
+<circle x="32.512" y="5.588" radius="1.778" width="0.0254" layer="51"/>
+<circle x="32.520890625" y="32.520890625" radius="1.778" width="0.0254" layer="51"/>
+<circle x="12.13485" y="25.96515" radius="1.778" width="0.0254" layer="51"/>
+<circle x="12.13485" y="12.13485" radius="1.778" width="0.0254" layer="51"/>
+<circle x="25.96515" y="12.13485" radius="1.778" width="0.0254" layer="51"/>
+<circle x="19.05" y="19.05" radius="6.35" width="0.0254" layer="51"/>
+<circle x="5.588" y="24.638" radius="1.778" width="0.0254" layer="51"/>
+<circle x="32.512" y="24.638" radius="1.778" width="0.0254" layer="51"/>
+<circle x="12.13485" y="31.18485" radius="1.778" width="0.0254" layer="51"/>
+<circle x="25.96515" y="31.18485" radius="1.778" width="0.0254" layer="51"/>
+<circle x="19.05" y="28.575" radius="2.032" width="0.0254" layer="51"/>
+<circle x="19.05" y="9.525" radius="2.032" width="0.0254" layer="51"/>
+<circle x="28.575" y="19.05" radius="2.032" width="0.0254" layer="51"/>
+<circle x="9.525" y="19.05" radius="2.032" width="0.0254" layer="51"/>
+<circle x="25.96515" y="6.91515" radius="1.778" width="0.0254" layer="51"/>
+<circle x="5.588" y="13.462" radius="1.778" width="0.0254" layer="51"/>
+<circle x="32.520890625" y="13.470890625" radius="1.778" width="0.0254" layer="51"/>
+<circle x="12.13485" y="6.91515" radius="1.778" width="0.0254" layer="51"/>
+<circle x="5.588" y="5.588" radius="1.778" width="0.0254" layer="51"/>
+<circle x="25.96515" y="25.96515" radius="1.778" width="0.0254" layer="51"/>
+<circle x="5.588" y="32.512" radius="1.778" width="0.0254" layer="51"/>
+<circle x="32.512" y="5.588" radius="1.778" width="0.0254" layer="51"/>
+<circle x="32.520890625" y="32.520890625" radius="1.778" width="0.0254" layer="51"/>
+<circle x="12.13485" y="25.96515" radius="1.778" width="0.0254" layer="51"/>
+<circle x="12.13485" y="12.13485" radius="1.778" width="0.0254" layer="51"/>
+<circle x="25.96515" y="12.13485" radius="1.778" width="0.0254" layer="51"/>
+<circle x="19.05" y="19.05" radius="6.35" width="0.0254" layer="51"/>
+<circle x="19.05" y="9.525" radius="2.032" width="0.0254" layer="51"/>
+<circle x="5.588" y="24.638" radius="1.778" width="0.0254" layer="51"/>
+<circle x="32.512" y="24.638" radius="1.778" width="0.0254" layer="51"/>
+<circle x="12.13485" y="31.18485" radius="1.778" width="0.0254" layer="51"/>
+<circle x="25.96515" y="31.18485" radius="1.778" width="0.0254" layer="51"/>
+<circle x="19.05" y="28.575" radius="2.032" width="0.0254" layer="51"/>
+<circle x="25.96515" y="25.96515" radius="1.778" width="0.0254" layer="51"/>
+<circle x="5.588" y="32.512" radius="1.778" width="0.0254" layer="51"/>
+<circle x="32.520890625" y="32.520890625" radius="1.778" width="0.0254" layer="51"/>
+<circle x="12.13485" y="25.96515" radius="1.778" width="0.0254" layer="51"/>
+<circle x="5.588" y="24.638" radius="1.778" width="0.0254" layer="51"/>
+<circle x="32.512" y="24.638" radius="1.778" width="0.0254" layer="51"/>
+<circle x="12.13485" y="31.18485" radius="1.778" width="0.0254" layer="51"/>
+<circle x="25.96515" y="31.18485" radius="1.778" width="0.0254" layer="51"/>
+<circle x="19.05" y="28.575" radius="2.032" width="0.0254" layer="51"/>
+<wire x1="38.1" y1="38.1" x2="0" y2="38.1" width="0.6096" layer="51"/>
+<text x="19.05" y="19.05" size="1.27" layer="51" font="vector" align="center">0.5"</text>
+<text x="12.13485" y="31.18485" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="25.96515" y="31.18485" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="32.520890625" y="32.520890625" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="32.512" y="24.638" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="25.96515" y="25.96515" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="32.520890625" y="13.470890625" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="25.96515" y="12.13485" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="32.512" y="5.588" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="25.96515" y="6.91515" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="5.588" y="24.638" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="12.13485" y="25.96515" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="5.588" y="13.462" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="12.13485" y="12.13485" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="12.13485" y="6.91515" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="5.588" y="5.588" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="5.588" y="32.512" size="0.6096" layer="51" font="vector" align="center">0.14"</text>
+<text x="19.05" y="28.575" size="0.6096" layer="51" font="vector" align="center">0.16"</text>
+<text x="28.575" y="19.05" size="0.6096" layer="51" font="vector" align="center">0.16"
+</text>
+<text x="9.525" y="19.05" size="0.6096" layer="51" font="vector" align="center">0.16"</text>
+<text x="19.05" y="9.525" size="0.6096" layer="51" font="vector" align="center">0.16"</text>
 </package>
 </packages>
 </library>
@@ -537,7 +646,7 @@ design rules under a new name.</description>
 <elements>
 <element name="E$1" library="sandbox" package="UARM" value="" x="0" y="0" rot="R100"/>
 <element name="E$3" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="-172.72" y="140.97" rot="R90"/>
-<element name="E$6" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="-152.4" y="101.6" rot="R90"/>
+<element name="E$6" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="-406.4" y="69.85" rot="R90"/>
 <element name="E$7" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="-170.18" y="120.65" rot="R180"/>
 <element name="E$8" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="-20.32" y="140.97" rot="R90"/>
 <element name="E$9" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="0" y="101.6" rot="R90"/>
@@ -551,9 +660,23 @@ design rules under a new name.</description>
 <element name="E$17" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="-166.37" y="55.88" rot="R180"/>
 <element name="E$18" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="-127" y="76.2" rot="R180"/>
 <element name="E$19" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="-146.05" y="58.42" rot="R270"/>
+<element name="E$2" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-482.6" y="69.85" rot="R90"/>
+<element name="E$4" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-501.65" y="69.85" rot="R90"/>
+<element name="E$5" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-520.7" y="69.85" rot="R90"/>
+<element name="E$20" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-463.55" y="69.85" rot="R90"/>
+<element name="E$21" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-444.5" y="69.85" rot="R90"/>
+<element name="E$22" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-425.45" y="69.85" rot="R90"/>
+<element name="E$23" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-406.4" y="69.85" rot="R90"/>
+<element name="E$24" library="uarm_alignment_base" package="ACTOBOTICS_BEAM_4.62_INCH" value="" x="-539.75" y="120.65"/>
 </elements>
 <signals>
 </signals>
 </board>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
