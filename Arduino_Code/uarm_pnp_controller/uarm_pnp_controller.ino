@@ -6,7 +6,7 @@
 #define ACCELERATING 0
 #define AT_FULL_SPEED 1
 #define DECELERATING 2
-int servo_movement_status [4] = {ACCELERATING, ACCELERATING, ACCELERATING, ACCELERATING};
+int servo_movement_status[4] = {ACCELERATING, ACCELERATING, ACCELERATING, ACCELERATING};
 int angle_increment[4] = {1,1,1,1};
 
 int destination_0_angle;
@@ -46,11 +46,6 @@ int servo_0_angle = 100; // base
 int servo_1_angle = 120; // left
 int servo_2_angle = 31; // right
 int servo_3_angle = 90; // hand
-
-int servo_0_angle_previous = 90; // base
-int servo_1_angle_previous = 90; // left
-int servo_2_angle_previous = 45; // right
-int servo_3_angle_previous = 90; // hand
 
 void setup() {
   Serial.begin(115200); // debug
