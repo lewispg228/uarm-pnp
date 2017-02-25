@@ -8,6 +8,13 @@
 #define DECELERATING 2
 int servo_movement_status[4] = {ACCELERATING, ACCELERATING, ACCELERATING, ACCELERATING};
 int angle_increment[4] = {1,1,1,1};
+int servo_angle[4] = {100, 120, 30, 90}; // base, left, right, hand
+int destination_angle[4] = {100, 120, 30, 90}; // used for accel/decel functions
+
+int servo_0_angle = 100; // base
+int servo_1_angle = 120; // left
+int servo_2_angle = 31; // right
+int servo_3_angle = 90; // hand
 
 int destination_0_angle;
 int destination_1_angle;
@@ -42,10 +49,7 @@ float z_4 = 100.0;
 // get position angle: P200
 // set angle of servo: G202 N0 V55   //  N<servo number 0 -3> V<angle 0-180>  , note, servo 0 is the rotational servo in the base, 1 is left, 2 is right, 3 is hand
 
-int servo_0_angle = 100; // base
-int servo_1_angle = 120; // left
-int servo_2_angle = 31; // right
-int servo_3_angle = 90; // hand
+
 
 void setup() {
   Serial.begin(115200); // debug
