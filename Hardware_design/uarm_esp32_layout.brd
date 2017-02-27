@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.25" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+<grid distance="0.5" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -159,13 +159,13 @@
 <library name="sandbox">
 <packages>
 <package name="UARM">
-<circle x="0" y="0" radius="299.72" width="2.54" layer="49"/>
-<wire x1="0" y1="358.14" x2="0" y2="-353.06" width="2.54" layer="49"/>
-<circle x="0" y="0" radius="70.104" width="2.54" layer="49"/>
 <polygon width="0" layer="49" spacing="25.4" pour="hatch">
-<vertex x="0" y="-299.72" curve="90"/>
-<vertex x="299.72" y="-1.27" curve="90"/>
-<vertex x="0" y="299.72"/>
+<vertex x="0" y="-354.72" curve="90"/>
+<vertex x="354.72" y="-1.27" curve="90"/>
+<vertex x="0" y="354.72"/>
+<vertex x="0" y="100" curve="-90"/>
+<vertex x="100" y="0" curve="-90"/>
+<vertex x="0" y="-100"/>
 </polygon>
 </package>
 </packages>
@@ -298,41 +298,13 @@
 <wire x1="53.6575" y1="10.033" x2="58.42" y2="14.7955" width="0.127" layer="49" curve="-90"/>
 <hole x="58.674" y="0" drill="2.794"/>
 </package>
-<package name="ACTOBOTICS_BEAM_4.62_INCH">
-<hole x="0" y="0" drill="2.794"/>
-<hole x="9.779" y="0" drill="2.794"/>
-<hole x="19.558" y="0" drill="2.794"/>
-<hole x="29.337" y="0" drill="2.794"/>
-<hole x="39.116" y="0" drill="2.794"/>
-<hole x="48.895" y="0" drill="2.794"/>
-<hole x="58.674" y="0" drill="2.794"/>
-<hole x="68.453" y="0" drill="2.794"/>
-<hole x="78.232" y="0" drill="2.794"/>
-<hole x="88.011" y="0" drill="2.794"/>
-<hole x="97.79" y="0" drill="2.794"/>
-<hole x="107.569" y="0" drill="2.794"/>
-<hole x="117.348" y="0" drill="2.794"/>
-<circle x="0" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="9.779" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="19.558" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="29.337" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="39.116" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="48.895" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="58.674" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="68.453" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="78.232" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="88.011" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="97.79" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="107.569" y="0" radius="1.778" width="0.127" layer="49"/>
-<circle x="117.348" y="0" radius="1.778" width="0.127" layer="49"/>
-<wire x1="122.3645" y1="0.254" x2="122.3645" y2="0" width="0.127" layer="49"/>
-<wire x1="122.3645" y1="0" x2="117.602" y2="-4.7625" width="0.127" layer="49" curve="-90"/>
-<wire x1="117.602" y1="-4.7625" x2="0" y2="-4.7625" width="0.127" layer="49"/>
-<wire x1="0" y1="-4.7625" x2="-4.7625" y2="0" width="0.127" layer="49" curve="-90"/>
-<wire x1="-4.7625" y1="0" x2="-4.7625" y2="0.254" width="0.127" layer="49"/>
-<wire x1="-4.7625" y1="0.254" x2="0" y2="5.0165" width="0.127" layer="49" curve="-90"/>
-<wire x1="0" y1="5.0165" x2="117.602" y2="5.0165" width="0.127" layer="49"/>
-<wire x1="117.602" y1="5.0165" x2="122.3645" y2="0.254" width="0.127" layer="49" curve="-90"/>
+<package name="LASER_CUTTER_MAX_SIZE">
+<wire x1="0" y1="0" x2="609.6" y2="0" width="0.127" layer="49"/>
+<wire x1="609.6" y1="0" x2="609.6" y2="457.2" width="0.127" layer="49"/>
+<wire x1="609.6" y1="457.2" x2="0" y2="457.2" width="0.127" layer="49"/>
+<wire x1="0" y1="457.2" x2="0" y2="0" width="0.127" layer="49"/>
+<text x="-50.8" y="228.6" size="12.7" layer="49">18"</text>
+<text x="304.8" y="482.6" size="12.7" layer="49">24"</text>
 </package>
 </packages>
 </library>
@@ -645,29 +617,29 @@ design rules under a new name.</description>
 </autorouter>
 <elements>
 <element name="E$1" library="sandbox" package="UARM" value="" x="0" y="0" rot="R100"/>
-<element name="E$3" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="-172.72" y="140.97" rot="R90"/>
-<element name="E$6" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="-406.4" y="69.85" rot="R90"/>
-<element name="E$7" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="-170.18" y="120.65" rot="R180"/>
-<element name="E$8" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="-20.32" y="140.97" rot="R90"/>
-<element name="E$9" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="0" y="101.6" rot="R90"/>
-<element name="E$10" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="-17.78" y="120.65" rot="R180"/>
-<element name="E$11" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="132.08" y="140.97" rot="R90"/>
-<element name="E$12" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="152.4" y="101.6" rot="R90"/>
-<element name="E$13" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="134.62" y="120.65" rot="R180"/>
-<element name="E$14" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="284.48" y="140.97" rot="R90"/>
-<element name="E$15" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="304.8" y="101.6" rot="R90"/>
-<element name="E$16" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="287.02" y="120.65" rot="R180"/>
-<element name="E$17" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="-166.37" y="55.88" rot="R180"/>
-<element name="E$18" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="-127" y="76.2" rot="R180"/>
-<element name="E$19" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="-146.05" y="58.42" rot="R270"/>
-<element name="E$2" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-482.6" y="69.85" rot="R90"/>
-<element name="E$4" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-501.65" y="69.85" rot="R90"/>
-<element name="E$5" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-520.7" y="69.85" rot="R90"/>
-<element name="E$20" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-463.55" y="69.85" rot="R90"/>
-<element name="E$21" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-444.5" y="69.85" rot="R90"/>
-<element name="E$22" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-425.45" y="69.85" rot="R90"/>
-<element name="E$23" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-406.4" y="69.85" rot="R90"/>
-<element name="E$24" library="uarm_alignment_base" package="ACTOBOTICS_BEAM_4.62_INCH" value="" x="-539.75" y="120.65"/>
+<element name="E$3" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="-172.72" y="166.37" rot="R90"/>
+<element name="E$6" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="-152.4" y="127" rot="R90"/>
+<element name="E$7" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="-170.18" y="146.05" rot="R180"/>
+<element name="E$8" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="-20.32" y="166.37" rot="R90"/>
+<element name="E$9" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="0" y="127" rot="R90"/>
+<element name="E$10" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="-17.78" y="146.05" rot="R180"/>
+<element name="E$11" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="132.08" y="166.37" rot="R90"/>
+<element name="E$12" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="152.4" y="127" rot="R90"/>
+<element name="E$13" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="134.62" y="146.05" rot="R180"/>
+<element name="E$14" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="284.48" y="166.37" rot="R90"/>
+<element name="E$15" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="304.8" y="127" rot="R90"/>
+<element name="E$16" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="287.02" y="146.05" rot="R180"/>
+<element name="E$17" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="-166.37" y="68.58" rot="R180"/>
+<element name="E$18" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_6&quot;" value="" x="-127" y="88.9" rot="R180"/>
+<element name="E$19" library="uarm_alignment_base" package="UARM_ALIGNMENT_BASE" value="" x="-146.05" y="71.12" rot="R270"/>
+<element name="E$2" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-266.7" y="127" rot="R90"/>
+<element name="E$23" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-133.35" y="127" rot="R90"/>
+<element name="E$25" library="uarm_alignment_base" package="LASER_CUTTER_MAX_SIZE" value="" x="-304.8" y="-292.1"/>
+<element name="E$4" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="304.8" y="127" rot="R90"/>
+<element name="E$5" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="19.05" y="127" rot="R90"/>
+<element name="E$20" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="171.45" y="127" rot="R90"/>
+<element name="E$21" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-127" y="88.9" rot="R180"/>
+<element name="E$22" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-127" y="-25.4" rot="R180"/>
 </elements>
 <signals>
 </signals>
