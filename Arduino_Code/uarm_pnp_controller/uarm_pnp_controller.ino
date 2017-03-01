@@ -11,28 +11,8 @@ int angle_increment[4] = {1,1,1,1};
 int servo_angle[4] = {100, 120, 30, 90}; // base, left, right, hand
 int destination_angle[4] = {100, 120, 30, 90}; // used for accel/decel functions
 
-float x = 150.0;
-float y = 150.0;
-float z = 150.0;
-float s = 25.0;
-int step_size = 1;
+int step_size = 1; // used for manual driving
 int cmd_count = 1;
-
-float x_1 = 100.0;
-float y_1 = 100.0;
-float z_1 = 100.0;
-
-float x_2 = 100.0;
-float y_2 = 100.0;
-float z_2 = 100.0;
-
-float x_3 = 100.0;
-float y_3 = 100.0;
-float z_3 = 100.0;
-
-float x_4 = 100.0;
-float y_4 = 100.0;
-float z_4 = 100.0;
 
 /// commands learned from sniffing the pyuarm comm
 
@@ -53,12 +33,6 @@ void loop() {
     int input = Serial.read();
     Serial.println(char(input));
     switch (input) {
-      case 'a':
-        x = 150.0; y = 150.0; z = 150.0; s = 001.0;
-        break;
-      case 'b':
-        x = -160.0; y = 200.0; z = 60.0; s = 001.0;
-        break;
       case '0':
         servo_angle[0] -= step_size;
         break;   
@@ -135,36 +109,6 @@ void loop() {
   }
 }
 
-void set_position()
-{
-  //Serial1.print("#74 G0 X150.0 Y150.0 Z150.0 F100.0\n");
-  //Serial1.print("#74");
-  send_cmd_count();
-  Serial1.print(" G0");
-  Serial1.print(" X");
-  Serial1.print(x,1);
-  Serial1.print(" Y");
-  Serial1.print(y,1);
-  Serial1.print(" Z");
-  Serial1.print(z,1);
-  Serial1.print(" F");
-  Serial1.print(s,1);
-  Serial1.print("\n");
-  
-  Serial.print("#");
-  Serial.print(cmd_count);
-  Serial.print(" G0");
-  Serial.print(" X");
-  Serial.print(x,1);
-  Serial.print(" Y");
-  Serial.print(y,1);
-  Serial.print(" Z");
-  Serial.print(z,1);
-  Serial.print(" F001.0");
-  //Serial.print(s,1);
-  Serial.print("\n");
-}
-
 void pump_on()
 {
   Serial1.print("#74");
@@ -196,62 +140,6 @@ void send_cmd_count()
   cmd_count++;
   Serial1.print("#");
   Serial1.print(cmd_count);
-}
-
-void goto_pos(int pos)
-{
-  switch (pos) {
-    case 1:
-      x = x_1;
-      y = y_1;
-      z = z_1;
-      set_position();
-      break;
-    case 2:
-      x = x_2;
-      y = y_2;
-      z = z_2;
-      set_position();
-      break;
-    case 3:
-      x = x_3;
-      y = y_3;
-      z = z_3;
-      set_position();
-      break;
-    case 4:
-      x = x_4;
-      y = y_4;
-      z = z_4;
-      set_position();
-      break;      
-  }
-}
-
-void store_pos(int pos)
-{
-  switch (pos) {
-    case 1:
-      x_1 = x;
-      y_1 = y;
-      z_1 = z;
-      break;
-    case 2:
-      x_2 = x;
-      y_2 = y;
-      z_2 = z;
-      break;
-    case 3:
-      x_3 = x;
-      y_3 = y;
-      z_3 = z;
-      break;    
-    case 4:
-      x_4 = x;
-      y_4 = y;
-      z_4 = z;
-      break;  
-  }
 }
 
 void set_position_angle(int s0, int s1, int s2, int s3)
