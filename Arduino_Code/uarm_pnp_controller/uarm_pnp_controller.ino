@@ -321,15 +321,15 @@ void glide_to_pos_angle(int destination, int delay_time)
 
 void calculate_all_angle_increments()
 {
-  calculate_angle_increment(destination_angle[0], servo_angle[0], 0); 
-  calculate_angle_increment(destination_angle[1], servo_angle[1], 1);
-  calculate_angle_increment(destination_angle[2], servo_angle[2], 2);
-  calculate_angle_increment(destination_angle[3], servo_angle[3], 3);
+  calculate_angle_increment(0); 
+  calculate_angle_increment(1);
+  calculate_angle_increment(2);
+  calculate_angle_increment(3);
 }
 
-void calculate_angle_increment(int destination_angle, int current_angle, int s) // "s" is for servo number 0-3
+void calculate_angle_increment(int s) // "s" is for servo number 0-3
  {
-  int difference = destination_angle - current_angle;
+  int difference = destination_angle[s] - servo_angle[s];
   difference = abs(difference);
   Serial.print("difference: ");
   Serial.println(difference);
