@@ -11,16 +11,6 @@ int angle_increment[4] = {1,1,1,1};
 int servo_angle[4] = {100, 120, 30, 90}; // base, left, right, hand
 int destination_angle[4] = {100, 120, 30, 90}; // used for accel/decel functions
 
-int servo_0_angle = 100; // base
-int servo_1_angle = 120; // left
-int servo_2_angle = 31; // right
-int servo_3_angle = 90; // hand
-
-int destination_0_angle;
-int destination_1_angle;
-int destination_2_angle;
-int destination_3_angle;
-
 float x = 150.0;
 float y = 150.0;
 float z = 150.0;
@@ -70,28 +60,28 @@ void loop() {
         x = -160.0; y = 200.0; z = 60.0; s = 001.0;
         break;
       case '0':
-        servo_0_angle -= step_size;
+        servo_angle[0] -= step_size;
         break;   
       case '.':
-        servo_0_angle += step_size;
+        servo_angle[0] += step_size;
         break;   
       case '1':
-        servo_1_angle -= step_size;
+        servo_angle[1] -= step_size;
         break;   
       case '2':
-        servo_1_angle += step_size;
+        servo_angle[1] += step_size;
         break; 
       case '4':
-        servo_2_angle -= step_size;
+        servo_angle[2] -= step_size;
         break;   
       case '5':
-        servo_2_angle += step_size;
+        servo_angle[2] += step_size;
         break; 
       case '7':
-        servo_3_angle -= step_size;
+        servo_angle[3] -= step_size;
         break;   
       case '8':
-        servo_3_angle += step_size;
+        servo_angle[3] += step_size;
         break;         
       case '*':
         pump_on();
@@ -134,7 +124,7 @@ void loop() {
         get_pos_angle();
         break;              
     }
-    set_position_angle(servo_0_angle, servo_1_angle, servo_2_angle, servo_3_angle);
+    set_position_angle(servo_angle[0], servo_angle[1], servo_angle[2], servo_angle[3]);
   }
   delay(1);
   
@@ -315,28 +305,28 @@ void store_pos_angle(int pos)
 {
   switch (pos) {
     case 1:
-      EEPROM.write(0, servo_0_angle);
-      EEPROM.write(1, servo_1_angle);
-      EEPROM.write(2, servo_2_angle);
-      EEPROM.write(3, servo_3_angle);
+      EEPROM.write(0, servo_angle[0]);
+      EEPROM.write(1, servo_angle[1]);
+      EEPROM.write(2, servo_angle[2]);
+      EEPROM.write(3, servo_angle[3]);
       break;
     case 2:
-      EEPROM.write(4, servo_0_angle);
-      EEPROM.write(5, servo_1_angle);
-      EEPROM.write(6, servo_2_angle);
-      EEPROM.write(7, servo_3_angle);
+      EEPROM.write(4, servo_angle[0]);
+      EEPROM.write(5, servo_angle[1]);
+      EEPROM.write(6, servo_angle[2]);
+      EEPROM.write(7, servo_angle[3]);
       break;
     case 3:
-      EEPROM.write(8, servo_0_angle);
-      EEPROM.write(9, servo_1_angle);
-      EEPROM.write(10, servo_2_angle);
-      EEPROM.write(11, servo_3_angle);
+      EEPROM.write(8, servo_angle[0]);
+      EEPROM.write(9, servo_angle[1]);
+      EEPROM.write(10, servo_angle[2]);
+      EEPROM.write(11, servo_angle[3]);
       break;    
     case 4:
-      EEPROM.write(12, servo_0_angle);
-      EEPROM.write(13, servo_1_angle);
-      EEPROM.write(14, servo_2_angle);
-      EEPROM.write(15, servo_3_angle);
+      EEPROM.write(12, servo_angle[0]);
+      EEPROM.write(13, servo_angle[1]);
+      EEPROM.write(14, servo_angle[2]);
+      EEPROM.write(15, servo_angle[3]);
       break;  
   }
 }
@@ -345,31 +335,31 @@ void goto_pos_angle(int pos)
 {
   switch (pos) {
     case 1:
-      servo_0_angle = EEPROM.read(0);
-      servo_1_angle = EEPROM.read(1);
-      servo_2_angle = EEPROM.read(2);
-      servo_3_angle = EEPROM.read(3);
+      servo_angle[0] = EEPROM.read(0);
+      servo_angle[1] = EEPROM.read(1);
+      servo_angle[2] = EEPROM.read(2);
+      servo_angle[3] = EEPROM.read(3);
       break;
     case 2:
-      servo_0_angle = EEPROM.read(4);
-      servo_1_angle = EEPROM.read(5);
-      servo_2_angle = EEPROM.read(6);
-      servo_3_angle = EEPROM.read(7);
+      servo_angle[0] = EEPROM.read(4);
+      servo_angle[1] = EEPROM.read(5);
+      servo_angle[2] = EEPROM.read(6);
+      servo_angle[3] = EEPROM.read(7);
       break;
     case 3:
-      servo_0_angle = EEPROM.read(8);
-      servo_1_angle = EEPROM.read(9);
-      servo_2_angle = EEPROM.read(10);
-      servo_3_angle = EEPROM.read(11);
+      servo_angle[0] = EEPROM.read(8);
+      servo_angle[1] = EEPROM.read(9);
+      servo_angle[2] = EEPROM.read(10);
+      servo_angle[3] = EEPROM.read(11);
       break;
     case 4:
-      servo_0_angle = EEPROM.read(12);
-      servo_1_angle = EEPROM.read(13);
-      servo_2_angle = EEPROM.read(14);
-      servo_3_angle = EEPROM.read(15);
+      servo_angle[0] = EEPROM.read(12);
+      servo_angle[1] = EEPROM.read(13);
+      servo_angle[2] = EEPROM.read(14);
+      servo_angle[3] = EEPROM.read(15);
       break;      
   }
-  set_position_angle(servo_0_angle, servo_1_angle, servo_2_angle, servo_3_angle);
+  set_position_angle(servo_angle[0], servo_angle[1], servo_angle[2], servo_angle[3]);
 }
 
 // glide from one position to the next, with some control of speed.
@@ -380,28 +370,28 @@ void glide_to_pos_angle(int destination, int delay_time)
       
     switch (destination) {
     case 1:
-      destination_0_angle = EEPROM.read(0);
-      destination_1_angle = EEPROM.read(1);
-      destination_2_angle = EEPROM.read(2);
-      destination_3_angle = EEPROM.read(3);
+      destination_angle[0] = EEPROM.read(0);
+      destination_angle[1] = EEPROM.read(1);
+      destination_angle[2] = EEPROM.read(2);
+      destination_angle[3] = EEPROM.read(3);
       break;
     case 2:
-      destination_0_angle = EEPROM.read(4);
-      destination_1_angle = EEPROM.read(5);
-      destination_2_angle = EEPROM.read(6);
-      destination_3_angle = EEPROM.read(7);
+      destination_angle[0] = EEPROM.read(4);
+      destination_angle[1] = EEPROM.read(5);
+      destination_angle[2] = EEPROM.read(6);
+      destination_angle[3] = EEPROM.read(7);
       break;
     case 3:
-      destination_0_angle = EEPROM.read(8);
-      destination_1_angle = EEPROM.read(9);
-      destination_2_angle = EEPROM.read(10);
-      destination_3_angle = EEPROM.read(11);
+      destination_angle[0] = EEPROM.read(8);
+      destination_angle[1] = EEPROM.read(9);
+      destination_angle[2] = EEPROM.read(10);
+      destination_angle[3] = EEPROM.read(11);
       break;
     case 4:
-      destination_0_angle = EEPROM.read(12);
-      destination_1_angle = EEPROM.read(13);
-      destination_2_angle = EEPROM.read(14);
-      destination_3_angle = EEPROM.read(15);
+      destination_angle[0] = EEPROM.read(12);
+      destination_angle[1] = EEPROM.read(13);
+      destination_angle[2] = EEPROM.read(14);
+      destination_angle[3] = EEPROM.read(15);
       break;      
   }
 
@@ -414,26 +404,26 @@ void glide_to_pos_angle(int destination, int delay_time)
   
   while(glide_complete == false)
   {
-    if(destination_0_angle > servo_0_angle) servo_0_angle += angle_increment[0];
-    else if(destination_0_angle < servo_0_angle)servo_0_angle -= angle_increment[0];
+    if(destination_angle[0] > servo_angle[0]) servo_angle[0] += angle_increment[0];
+    else if(destination_angle[0] < servo_angle[0])servo_angle[0] -= angle_increment[0];
 
-    if(destination_1_angle > servo_1_angle) servo_1_angle += angle_increment[1];
-    else if(destination_1_angle < servo_1_angle) servo_1_angle -= angle_increment[1];
+    if(destination_angle[1] > servo_angle[1]) servo_angle[1] += angle_increment[1];
+    else if(destination_angle[1] < servo_angle[1]) servo_angle[1] -= angle_increment[1];
 
-    if(destination_2_angle > servo_2_angle) servo_2_angle += angle_increment[2];
-    else if(destination_2_angle < servo_2_angle)servo_2_angle -= angle_increment[2];
+    if(destination_angle[2] > servo_angle[2]) servo_angle[2] += angle_increment[2];
+    else if(destination_angle[2] < servo_angle[2])servo_angle[2] -= angle_increment[2];
     
-    if(destination_3_angle > servo_3_angle) servo_3_angle += angle_increment[3];
-    else if(destination_3_angle < servo_3_angle) servo_3_angle -= angle_increment[3];
+    if(destination_angle[3] > servo_angle[3]) servo_angle[3] += angle_increment[3];
+    else if(destination_angle[3] < servo_angle[3]) servo_angle[3] -= angle_increment[3];
 
-    set_position_angle(servo_0_angle, servo_1_angle, servo_2_angle, servo_3_angle);
+    set_position_angle(servo_angle[0], servo_angle[1], servo_angle[2], servo_angle[3]);
 
     delay(delay_time);
     
-    if( (destination_0_angle == servo_0_angle) &&
-        (destination_1_angle == servo_1_angle) &&
-        (destination_2_angle == servo_2_angle) &&
-        (destination_3_angle == servo_3_angle) )
+    if( (destination_angle[0] == servo_angle[0]) &&
+        (destination_angle[1] == servo_angle[1]) &&
+        (destination_angle[2] == servo_angle[2]) &&
+        (destination_angle[3] == servo_angle[3]) )
         {
           glide_complete = true;
         }  
@@ -443,10 +433,10 @@ void glide_to_pos_angle(int destination, int delay_time)
 
 void calculate_all_angle_increments()
 {
-  calculate_angle_increment(destination_0_angle, servo_0_angle, 0); 
-  calculate_angle_increment(destination_1_angle, servo_1_angle, 1);
-  calculate_angle_increment(destination_2_angle, servo_2_angle, 2);
-  calculate_angle_increment(destination_3_angle, servo_3_angle, 3);
+  calculate_angle_increment(destination_angle[0], servo_angle[0], 0); 
+  calculate_angle_increment(destination_angle[1], servo_angle[1], 1);
+  calculate_angle_increment(destination_angle[2], servo_angle[2], 2);
+  calculate_angle_increment(destination_angle[3], servo_angle[3], 3);
 }
 
 void calculate_angle_increment(int destination_angle, int current_angle, int s) // "s" is for servo number 0-3
