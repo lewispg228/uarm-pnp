@@ -81,7 +81,10 @@ void loop() {
         break;  
       case '$':
         glide_to_pos_angle(4,70);
-        break;               
+        break;        
+      case '%':
+        glide_to_pos_angle(5,70);
+        break;                    
       case 'q':
         store_pos_angle(1);
         break;  
@@ -94,6 +97,9 @@ void loop() {
       case 'r':
         store_pos_angle(4);
         break;      
+      case 't':
+        store_pos_angle(5);
+        break;           
       case 'p':
         get_pos_angle();
         break;              
@@ -191,62 +197,23 @@ void set_position_angle(int s0, int s1, int s2, int s3)
 
 void store_pos_angle(int pos)
 {
-  switch (pos) {
-    case 1:
-      EEPROM.write(0, servo_angle[0]);
-      EEPROM.write(1, servo_angle[1]);
-      EEPROM.write(2, servo_angle[2]);
-      EEPROM.write(3, servo_angle[3]);
-      break;
-    case 2:
-      EEPROM.write(4, servo_angle[0]);
-      EEPROM.write(5, servo_angle[1]);
-      EEPROM.write(6, servo_angle[2]);
-      EEPROM.write(7, servo_angle[3]);
-      break;
-    case 3:
-      EEPROM.write(8, servo_angle[0]);
-      EEPROM.write(9, servo_angle[1]);
-      EEPROM.write(10, servo_angle[2]);
-      EEPROM.write(11, servo_angle[3]);
-      break;    
-    case 4:
-      EEPROM.write(12, servo_angle[0]);
-      EEPROM.write(13, servo_angle[1]);
-      EEPROM.write(14, servo_angle[2]);
-      EEPROM.write(15, servo_angle[3]);
-      break;  
-  }
+  int mem_bank_location_start = 4*pos; // each bank is 4 spots, cuz there's 4 servo angles to remember.
+  
+  EEPROM.write(mem_bank_location_start, servo_angle[0]);
+  EEPROM.write((mem_bank_location_start+1), servo_angle[1]);
+  EEPROM.write((mem_bank_location_start+2), servo_angle[2]);
+  EEPROM.write((mem_bank_location_start+3), servo_angle[3]);
 }
 
 void goto_pos_angle(int pos)
 {
-  switch (pos) {
-    case 1:
-      servo_angle[0] = EEPROM.read(0);
-      servo_angle[1] = EEPROM.read(1);
-      servo_angle[2] = EEPROM.read(2);
-      servo_angle[3] = EEPROM.read(3);
-      break;
-    case 2:
-      servo_angle[0] = EEPROM.read(4);
-      servo_angle[1] = EEPROM.read(5);
-      servo_angle[2] = EEPROM.read(6);
-      servo_angle[3] = EEPROM.read(7);
-      break;
-    case 3:
-      servo_angle[0] = EEPROM.read(8);
-      servo_angle[1] = EEPROM.read(9);
-      servo_angle[2] = EEPROM.read(10);
-      servo_angle[3] = EEPROM.read(11);
-      break;
-    case 4:
-      servo_angle[0] = EEPROM.read(12);
-      servo_angle[1] = EEPROM.read(13);
-      servo_angle[2] = EEPROM.read(14);
-      servo_angle[3] = EEPROM.read(15);
-      break;      
-  }
+  int mem_bank_location_start = 4*pos;
+
+  servo_angle[0] = EEPROM.read(mem_bank_location_start);
+  servo_angle[1] = EEPROM.read((mem_bank_location_start+1));
+  servo_angle[2] = EEPROM.read((mem_bank_location_start+2));
+  servo_angle[3] = EEPROM.read((mem_bank_location_start+3));
+
   set_position_angle(servo_angle[0], servo_angle[1], servo_angle[2], servo_angle[3]);
 }
 
@@ -254,34 +221,15 @@ void goto_pos_angle(int pos)
 // basically, break up the travel distance and add in some delays to slow it down.
 void glide_to_pos_angle(int destination, int delay_time)
 {
-    boolean glide_complete = false;
-      
-    switch (destination) {
-    case 1:
-      destination_angle[0] = EEPROM.read(0);
-      destination_angle[1] = EEPROM.read(1);
-      destination_angle[2] = EEPROM.read(2);
-      destination_angle[3] = EEPROM.read(3);
-      break;
-    case 2:
-      destination_angle[0] = EEPROM.read(4);
-      destination_angle[1] = EEPROM.read(5);
-      destination_angle[2] = EEPROM.read(6);
-      destination_angle[3] = EEPROM.read(7);
-      break;
-    case 3:
-      destination_angle[0] = EEPROM.read(8);
-      destination_angle[1] = EEPROM.read(9);
-      destination_angle[2] = EEPROM.read(10);
-      destination_angle[3] = EEPROM.read(11);
-      break;
-    case 4:
-      destination_angle[0] = EEPROM.read(12);
-      destination_angle[1] = EEPROM.read(13);
-      destination_angle[2] = EEPROM.read(14);
-      destination_angle[3] = EEPROM.read(15);
-      break;      
-  }
+  boolean glide_complete = false;
+
+  // pull in destination from eeprom - just like we do when we use goto_pos_angle(), but this time, store it as destinations
+  int mem_bank_location_start = 4*destination;
+
+  destination_angle[0] = EEPROM.read(mem_bank_location_start);
+  destination_angle[1] = EEPROM.read((mem_bank_location_start+1));
+  destination_angle[2] = EEPROM.read((mem_bank_location_start+2));
+  destination_angle[3] = EEPROM.read((mem_bank_location_start+3));
 
   int max_angle_increment = 5;
   int min_decel_steps = 10;
