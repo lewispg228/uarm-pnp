@@ -187,15 +187,6 @@ void set_position_angle(int s0, int s1, int s2, int s3)
   Serial.print(", ");
   Serial.println(s3);
 
-  Serial.print("angle increments: ");
-  Serial.print(angle_increment[0]);
-  Serial.print(", ");
-  Serial.print(angle_increment[1]);
-  Serial.print(", ");
-  Serial.print(angle_increment[2]);
-  Serial.print(", ");
-  Serial.println(angle_increment[3]);
-  
   send_cmd_count();
   Serial1.print(" G202");
   Serial1.print(" N0 V");
@@ -290,24 +281,38 @@ void glide_to_pos_angle(int destination, int delay_time)
         {
           glide_complete = true;
         }  
-    calculate_all_angle_increments();  
+    calculate_all_angle_increments(false);  
   }
 }
 
-void calculate_all_angle_increments()
+void calculate_all_angle_increments(boolean debug)
 {
-  calculate_angle_increment(0); 
-  calculate_angle_increment(1);
-  calculate_angle_increment(2);
-  calculate_angle_increment(3);
+  calculate_angle_increment(0, false); 
+  calculate_angle_increment(1, false);
+  calculate_angle_increment(2, false);
+  calculate_angle_increment(3, false);
+  if(debug)
+  {
+    Serial.print("angle increments: ");
+    Serial.print(angle_increment[0]);
+    Serial.print(", ");
+    Serial.print(angle_increment[1]);
+    Serial.print(", ");
+    Serial.print(angle_increment[2]);
+    Serial.print(", ");
+    Serial.println(angle_increment[3]);    
+  }
 }
 
-void calculate_angle_increment(int s) // "s" is for servo number 0-3
+void calculate_angle_increment(int s, boolean debug) // "s" is for servo number 0-3
  {
   int difference = destination_angle[s] - servo_angle[s];
   difference = abs(difference);
-  Serial.print("difference: ");
-  Serial.println(difference);
+  if(debug) 
+  {
+    Serial.print("difference: ");
+    Serial.println(difference);
+  }
   if(difference <= 15) servo_movement_status[s] = DECELERATING;
   else if(angle_increment[s] == 5) servo_movement_status[s] = AT_FULL_SPEED;
   else servo_movement_status[s] = ACCELERATING;
