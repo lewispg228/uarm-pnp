@@ -126,7 +126,10 @@ void loop() {
         break;                                             
       case 'p':
         get_pos_angle();
-        break;              
+        break;         
+      case 'x':
+        run_sequence();
+        break;                 
     }
     set_position_angle(servo_angle[0], servo_angle[1], servo_angle[2], servo_angle[3]);
   }
@@ -319,6 +322,15 @@ void calculate_angle_increment(int s) // "s" is for servo number 0-3
     case ACCELERATING:
       if(angle_increment[s] < 5) angle_increment[s]++;
       break;            
+  }
+ }
+
+ void run_sequence()
+ {
+  for(int i = 1 ; i < 10 ; i++)
+  {
+    glide_to_pos_angle(i,70);
+    delay(500);
   }
  }
 
