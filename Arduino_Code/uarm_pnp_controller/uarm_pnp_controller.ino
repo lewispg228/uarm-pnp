@@ -57,10 +57,10 @@ void loop() {
       case '8':
         servo_angle[3] += step_size;
         break;         
-      case '*':
+      case '+':
         pump_on();
         break;       
-      case '/':
+      case '-':
         pump_off();
         break;   
       case 's': // toggle step size between 1, 10 and 20
@@ -84,7 +84,19 @@ void loop() {
         break;        
       case '%':
         glide_to_pos_angle(5,70);
-        break;                    
+        break;        
+      case '^':
+        glide_to_pos_angle(6,70);
+        break;     
+      case '&':
+        glide_to_pos_angle(7,70);
+        break;  
+      case '*':
+        glide_to_pos_angle(8,70);
+        break;        
+      case '(':
+        glide_to_pos_angle(9,70);
+        break;                       
       case 'q':
         store_pos_angle(1);
         break;  
@@ -99,7 +111,19 @@ void loop() {
         break;      
       case 't':
         store_pos_angle(5);
-        break;           
+        break;          
+      case 'y':
+        store_pos_angle(6);
+        break;   
+      case 'u':
+        store_pos_angle(7);
+        break;   
+      case 'i':
+        store_pos_angle(8);
+        break;   
+      case 'o':
+        store_pos_angle(9);
+        break;                                             
       case 'p':
         get_pos_angle();
         break;              
