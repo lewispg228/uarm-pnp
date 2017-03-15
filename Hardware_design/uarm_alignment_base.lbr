@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -502,6 +502,10 @@
 <wire x1="0" y1="457.2" x2="0" y2="0" width="0.127" layer="49"/>
 <text x="-50.8" y="228.6" size="12.7" layer="49">18"</text>
 <text x="304.8" y="482.6" size="12.7" layer="49">24"</text>
+</package>
+<package name="TUBE_&amp;_BEARING_1/2&quot;">
+<circle x="0" y="0" radius="14.2875" width="0.127" layer="49"/>
+<circle x="0" y="0" radius="12.7" width="0.127" layer="49"/>
 </package>
 </packages>
 <symbols>
