@@ -43,7 +43,7 @@ void loop() {
         servo_angle[1] -= step_size;
         break;   
       case '2':
-        servo_angle[1] += step_size;
+        servo_angle[1] += step_size;        
         break; 
       case '4':
         servo_angle[2] -= step_size;
@@ -71,10 +71,10 @@ void loop() {
         Serial.println(step_size);
         break;           
       case '!':
-        glide_to_pos_angle(1,70);
+        glide_to_pos_angle(1,10);
         break;  
       case '@':
-        glide_to_pos_angle(2,70);
+        glide_to_pos_angle(2,10);
         break;     
       case '#':
         glide_to_pos_angle(3,70);
