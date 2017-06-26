@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.0001" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -145,6 +145,8 @@
 <layer number="229" name="229bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="230" name="230bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="231" name="231bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="232" name="Eagle3D_PG2" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="233" name="Eagle3D_PG3" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
@@ -1104,6 +1106,22 @@
 <wire x1="-8.89" y1="-3.81" x2="8.89" y2="-3.81" width="0.0254" layer="20"/>
 <wire x1="8.89" y1="-3.81" x2="12.7" y2="0" width="0.0254" layer="20" curve="90"/>
 <wire x1="12.7" y1="0" x2="8.89" y2="3.81" width="0.0254" layer="20" curve="90"/>
+</package>
+<package name="HINGE_SPACER">
+<wire x1="18.034" y1="0" x2="0" y2="0" width="0.127" layer="49"/>
+<wire x1="18.034" y1="0" x2="18.034" y2="19.304" width="0.127" layer="49"/>
+<wire x1="18.034" y1="19.304" x2="0" y2="19.304" width="0.127" layer="49"/>
+<wire x1="0" y1="0" x2="0" y2="19.304" width="0.127" layer="49"/>
+<circle x="14.224" y="15.1969" radius="1.8183" width="0.127" layer="49"/>
+<circle x="14.224" y="4.064" radius="1.8183" width="0.127" layer="49"/>
+<rectangle x1="7.5184" y1="2.281" x2="10.6934" y2="16.886" layer="49"/>
+<rectangle x1="7.5184" y1="2.281" x2="10.6934" y2="16.886" layer="49"/>
+<wire x1="10.16" y1="19.05" x2="10.16" y2="0" width="0.0254" layer="20"/>
+<wire x1="10.16" y1="0" x2="17.78" y2="0" width="0.0254" layer="20"/>
+<wire x1="17.78" y1="0" x2="17.78" y2="19.05" width="0.0254" layer="20"/>
+<wire x1="17.78" y1="19.05" x2="10.16" y2="19.05" width="0.0254" layer="20"/>
+<circle x="14.221459375" y="15.191740625" radius="1.7018" width="0.0254" layer="20"/>
+<circle x="14.21891875" y="4.066540625" radius="1.7018" width="0.0254" layer="20"/>
 </package>
 </packages>
 <symbols>
