@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.25" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.001" altunitdist="inch" altunit="inch"/>
+<grid distance="0.005" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.001" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -165,12 +165,12 @@
 <wire x1="76.2" y1="6.35" x2="76.2" y2="596.9" width="0.254" layer="20"/>
 <wire x1="76.2" y1="596.9" x2="69.85" y2="603.25" width="0.254" layer="20" curve="90"/>
 <wire x1="69.85" y1="603.25" x2="31.75" y2="603.25" width="0.254" layer="20"/>
-<wire x1="-16.891" y1="565.15" x2="-16.891" y2="99.06" width="6.35" layer="51"/>
-<wire x1="16.891" y1="565.15" x2="16.891" y2="99.06" width="6.35" layer="51"/>
-<wire x1="-26.924" y1="565.531" x2="-20.828" y2="572.008" width="0.6096" layer="21" curve="-83.121022"/>
-<wire x1="-20.828" y1="572.008" x2="-14.732" y2="569.722" width="0.6096" layer="21" curve="-59.815707"/>
-<wire x1="-14.732" y1="569.722" x2="-13.081" y2="565.277" width="0.6096" layer="21" curve="-42.907665"/>
-<wire x1="-13.081" y1="565.277" x2="-13.081" y2="98.425" width="0.6096" layer="21"/>
+<wire x1="-17.526" y1="565.15" x2="-17.526" y2="99.06" width="6.35" layer="51"/>
+<wire x1="17.526" y1="565.15" x2="17.526" y2="99.06" width="6.35" layer="51"/>
+<wire x1="-27.559" y1="565.531" x2="-21.463" y2="572.008" width="0.6096" layer="21" curve="-83.121022"/>
+<wire x1="-21.463" y1="572.008" x2="-15.367" y2="569.722" width="0.6096" layer="21" curve="-59.815707"/>
+<wire x1="-15.367" y1="569.722" x2="-13.716" y2="565.277" width="0.6096" layer="21" curve="-42.907665"/>
+<wire x1="-13.716" y1="565.277" x2="-13.081" y2="98.425" width="0.6096" layer="21"/>
 <wire x1="-13.081" y1="98.425" x2="-13.97" y2="96.52" width="0.6096" layer="21"/>
 <wire x1="-13.97" y1="96.52" x2="-41.91" y2="64.008" width="0.6096" layer="21"/>
 <wire x1="-41.91" y1="64.008" x2="-32.131" y2="51.308" width="0.6096" layer="21" curve="118.93816"/>
@@ -179,20 +179,20 @@
 <wire x1="-10.668" y1="42.291" x2="-17.272" y2="36.068" width="0.6096" layer="21" curve="-90"/>
 <wire x1="-17.272" y1="36.068" x2="-54.356" y2="38.1" width="0.6096" layer="21"/>
 <wire x1="-54.356" y1="38.1" x2="-61.087" y2="45.847" width="0.6096" layer="21" curve="-101.889589"/>
-<wire x1="-61.087" y1="45.847" x2="-26.924" y2="565.531" width="0.6096" layer="21"/>
+<wire x1="-61.087" y1="45.847" x2="-27.559" y2="565.531" width="0.6096" layer="21"/>
 <wire x1="0" y1="-50.8" x2="0" y2="723.9" width="0.254" layer="49" style="longdash"/>
-<wire x1="-12.446" y1="102.616" x2="-12.446" y2="566.166" width="2.3622" layer="108" style="shortdash"/>
-<wire x1="-13.081" y1="566.293" x2="-13.081" y2="102.743" width="1.0922" layer="108"/>
-<wire x1="13.716" y1="566.166" x2="13.716" y2="102.616" width="2.3622" layer="108" style="shortdash"/>
-<wire x1="14.351" y1="102.489" x2="14.351" y2="566.039" width="1.0922" layer="108"/>
+<wire x1="-13.1064" y1="102.5906" x2="-13.1064" y2="566.1406" width="2.3622" layer="108" style="shortdash"/>
+<wire x1="-13.7414" y1="566.2676" x2="-13.7414" y2="102.7176" width="1.0922" layer="108"/>
+<wire x1="13.0556" y1="566.1406" x2="13.0556" y2="102.5906" width="2.3622" layer="108" style="shortdash"/>
+<wire x1="13.6906" y1="102.4636" x2="13.6906" y2="566.0136" width="1.0922" layer="108"/>
 <wire x1="31.75" y1="603.25" x2="6.35" y2="577.85" width="0.254" layer="20"/>
 <wire x1="6.35" y1="577.85" x2="-6.35" y2="577.85" width="0.254" layer="20"/>
 <wire x1="-6.35" y1="577.85" x2="-31.75" y2="603.25" width="0.254" layer="20"/>
 <wire x1="16.891" y1="571.5" x2="16.891" y2="99.06" width="6.35" layer="52"/>
-<wire x1="26.924" y1="565.531" x2="20.828" y2="572.008" width="0.6096" layer="22" curve="83.121022"/>
-<wire x1="20.828" y1="572.008" x2="14.732" y2="569.722" width="0.6096" layer="22" curve="59.815707"/>
-<wire x1="14.732" y1="569.722" x2="13.081" y2="565.277" width="0.6096" layer="22" curve="42.907665"/>
-<wire x1="13.081" y1="565.277" x2="13.081" y2="98.425" width="0.6096" layer="22"/>
+<wire x1="27.6352" y1="565.4294" x2="21.5392" y2="571.9064" width="0.6096" layer="22" curve="83.121022"/>
+<wire x1="21.5392" y1="571.9064" x2="15.4432" y2="569.6204" width="0.6096" layer="22" curve="59.815707"/>
+<wire x1="15.4432" y1="569.6204" x2="13.7922" y2="565.1754" width="0.6096" layer="22" curve="42.907665"/>
+<wire x1="13.7922" y1="565.1754" x2="13.081" y2="98.425" width="0.6096" layer="22"/>
 <wire x1="13.081" y1="98.425" x2="13.97" y2="96.52" width="0.6096" layer="22"/>
 <wire x1="13.97" y1="96.52" x2="41.91" y2="64.008" width="0.6096" layer="22"/>
 <wire x1="41.91" y1="64.008" x2="32.131" y2="51.308" width="0.6096" layer="22" curve="-118.93816"/>
@@ -201,7 +201,7 @@
 <wire x1="10.668" y1="42.291" x2="17.272" y2="36.068" width="0.6096" layer="22" curve="90"/>
 <wire x1="17.272" y1="36.068" x2="54.356" y2="38.1" width="0.6096" layer="22"/>
 <wire x1="54.356" y1="38.1" x2="61.087" y2="45.847" width="0.6096" layer="22" curve="101.889589"/>
-<wire x1="61.087" y1="45.847" x2="26.924" y2="565.531" width="0.6096" layer="22"/>
+<wire x1="61.087" y1="45.847" x2="27.6352" y2="565.4294" width="0.6096" layer="22"/>
 <wire x1="88.5825" y1="97.79" x2="187.579" y2="97.79" width="0.254" layer="20"/>
 <wire x1="187.579" y1="97.79" x2="187.579" y2="565.15" width="0.254" layer="20"/>
 <wire x1="187.579" y1="565.15" x2="88.5825" y2="565.15" width="0.254" layer="20"/>
@@ -227,12 +227,13 @@
 <wire x1="42.6466" y1="537.21" x2="46.101" y2="537.21" width="0.0254" layer="20"/>
 <wire x1="46.101" y1="537.21" x2="46.0756" y2="460.4766" width="0.0254" layer="20"/>
 <wire x1="121.2596" y1="724.6112" x2="121.3612" y2="83.3628" width="0.2032" layer="49"/>
-<wire x1="233.9213" y1="97.7392" x2="274.0406" y2="97.7392" width="0.254" layer="20"/>
-<wire x1="274.0406" y1="97.7392" x2="274.0152" y2="565.1246" width="0.254" layer="20"/>
-<wire x1="274.0152" y1="565.1246" x2="233.9467" y2="565.15" width="0.254" layer="20"/>
+<wire x1="233.9213" y1="97.7392" x2="275.336" y2="97.7392" width="0.254" layer="20"/>
+<wire x1="275.336" y1="97.7392" x2="275.3106" y2="565.1246" width="0.254" layer="20"/>
+<wire x1="275.3106" y1="565.1246" x2="233.9467" y2="565.15" width="0.254" layer="20"/>
 <wire x1="233.934" y1="97.7392" x2="233.934" y2="565.15" width="0.254" layer="20"/>
 <wire x1="181.9148" y1="727.583" x2="182.0164" y2="86.3346" width="0.2032" layer="49"/>
-<wire x1="181.9148" y1="727.583" x2="182.0164" y2="86.3346" width="0.2032" layer="49"/>
+<wire x1="237.109" y1="563.372" x2="237.109" y2="97.282" width="6.35" layer="51"/>
+<wire x1="272.161" y1="563.372" x2="272.161" y2="97.282" width="6.35" layer="51"/>
 </plain>
 <libraries>
 <library name="uarm_alignment_base">
@@ -752,32 +753,32 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="E$1" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="196.469" y="638.2004" rot="R270"/>
+<element name="E$1" library="uarm_alignment_base" package="CARTRIDGE_ESP32" value="" x="56.769" y="689.0004" rot="R270"/>
 <element name="E$2" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="-76.2" y="565.15"/>
 <element name="E$3" library="SparkFun-Hardware" package="ACTOBOTICS_CHANNEL_SINGLE_DRILL_REF" value="" x="38.1" y="565.15"/>
-<element name="E$6" library="uarm_alignment_base" package="TUBE_&amp;_BEARING_1/2&quot;" value="" x="-20.066" y="565.277" rot="R80"/>
+<element name="E$6" library="uarm_alignment_base" package="TUBE_&amp;_BEARING_1/2&quot;" value="" x="-20.7772" y="565.1754" rot="R80"/>
 <element name="E$8" library="uarm_alignment_base" package="GEAR_84T" value="" x="-33.3502" y="60.325" rot="R75"/>
 <element name="E$9" library="uarm_alignment_base" package="TUBE_&amp;_BEARING_1/2&quot;" value="" x="-17.653" y="42.926" rot="R45"/>
 <element name="E$10" library="uarm_alignment_base" package="TUBE_&amp;_BEARING_1/2&quot;" value="" x="-54.356" y="44.704" rot="R135"/>
 <element name="E$13" library="uarm_alignment_base" package="SERVO_WITH_16T_GEAR_REF" value="" x="-42.7129625" y="98.974990625" rot="R90"/>
-<element name="E$14" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-16.891" y="127"/>
-<element name="E$15" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-16.891" y="177.8"/>
-<element name="E$16" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-16.891" y="228.6"/>
-<element name="E$17" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-16.891" y="279.4"/>
-<element name="E$18" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-16.891" y="330.2"/>
-<element name="E$19" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-16.891" y="381"/>
-<element name="E$20" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-16.891" y="431.8"/>
-<element name="E$21" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-16.891" y="482.6"/>
-<element name="E$22" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-16.891" y="533.4"/>
-<element name="E$23" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="16.891" y="127"/>
-<element name="E$24" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="16.891" y="177.8"/>
-<element name="E$25" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="16.891" y="228.6"/>
-<element name="E$26" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="16.891" y="279.4"/>
-<element name="E$27" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="16.891" y="330.2"/>
-<element name="E$28" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="16.891" y="381"/>
-<element name="E$29" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="16.891" y="431.8"/>
-<element name="E$30" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="16.891" y="482.6"/>
-<element name="E$31" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="16.891" y="533.4"/>
+<element name="E$14" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-17.526" y="127"/>
+<element name="E$15" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-17.526" y="177.8"/>
+<element name="E$16" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-17.526" y="228.6"/>
+<element name="E$17" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-17.526" y="279.4"/>
+<element name="E$18" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-17.526" y="330.2"/>
+<element name="E$19" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-17.526" y="381"/>
+<element name="E$20" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-17.526" y="431.8"/>
+<element name="E$21" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-17.526" y="482.6"/>
+<element name="E$22" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="-17.526" y="533.4"/>
+<element name="E$23" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="17.526" y="127"/>
+<element name="E$24" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="17.526" y="177.8"/>
+<element name="E$25" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="17.526" y="228.6"/>
+<element name="E$26" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="17.526" y="279.4"/>
+<element name="E$27" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="17.526" y="330.2"/>
+<element name="E$28" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="17.526" y="381"/>
+<element name="E$29" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="17.526" y="431.8"/>
+<element name="E$30" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="17.526" y="482.6"/>
+<element name="E$31" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="17.526" y="533.4"/>
 <element name="E$4" library="uarm_alignment_base" package="ACTOBOTICS_1/2_HOLE_WITH_HUB_HOLES" value="" x="59.055" y="552.45" rot="R270"/>
 <element name="E$5" library="uarm_alignment_base" package="ACTOBOTICS_1/2_HOLE_WITH_HUB_HOLES" value="" x="-59.055" y="552.45" rot="MR270"/>
 <element name="E$11" library="uarm_alignment_base" package="ACTOBOTICS_1/2_HOLE_WITH_HUB_HOLES" value="" x="-59.055" y="17.145" rot="MR180"/>
@@ -786,7 +787,7 @@ design rules under a new name.</description>
 <element name="E$33" library="uarm_alignment_base" package="END_STOP_CAP_1/4&quot;_ROD" value="" x="127" y="38.1" rot="R90"/>
 <element name="E$38" library="uarm_alignment_base" package="ACTOBOTICS_1/2_HOLE_WITH_HUB_HOLES" value="" x="-57.15" y="584.2" rot="MR270"/>
 <element name="E$39" library="uarm_alignment_base" package="ACTOBOTICS_1/2_HOLE_WITH_HUB_HOLES" value="" x="57.15" y="584.2" rot="R270"/>
-<element name="E$45" library="uarm_alignment_base" package="TUBE_&amp;_BEARING_1/2&quot;" value="" x="20.066" y="565.277" rot="MR80"/>
+<element name="E$45" library="uarm_alignment_base" package="TUBE_&amp;_BEARING_1/2&quot;" value="" x="20.7772" y="565.1754" rot="MR80"/>
 <element name="E$46" library="uarm_alignment_base" package="GEAR_84T" value="" x="33.3502" y="60.325" rot="MR75"/>
 <element name="E$47" library="uarm_alignment_base" package="TUBE_&amp;_BEARING_1/2&quot;" value="" x="17.653" y="42.926" rot="MR45"/>
 <element name="E$48" library="uarm_alignment_base" package="TUBE_&amp;_BEARING_1/2&quot;" value="" x="54.356" y="44.704" rot="MR135"/>
@@ -819,16 +820,16 @@ design rules under a new name.</description>
 <element name="E$69" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="117.9322" y="431.8"/>
 <element name="E$70" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="117.9322" y="482.6"/>
 <element name="E$71" library="uarm_alignment_base" package="1/4_RECT_CUT_OUT_REDUCED_0.993_X_0.225" value="" x="117.9322" y="533.4"/>
-<element name="E$91" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="270.8783" y="152.3746"/>
-<element name="E$92" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="270.8783" y="203.1746"/>
-<element name="E$93" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="270.8783" y="253.9746"/>
-<element name="E$94" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="270.8783" y="304.7746"/>
-<element name="E$95" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="270.8783" y="355.5746"/>
-<element name="E$96" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="270.8783" y="406.3746"/>
-<element name="E$97" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="270.8783" y="457.1746"/>
-<element name="E$98" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="270.8783" y="507.9746"/>
-<element name="E$99" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="270.8783" y="558.7746"/>
-<element name="E$100" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="270.8783" y="101.5746"/>
+<element name="E$91" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="272.1737" y="152.3746"/>
+<element name="E$92" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="272.1737" y="203.1746"/>
+<element name="E$93" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="272.1737" y="253.9746"/>
+<element name="E$94" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="272.1737" y="304.7746"/>
+<element name="E$95" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="272.1737" y="355.5746"/>
+<element name="E$96" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="272.1737" y="406.3746"/>
+<element name="E$97" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="272.1737" y="457.1746"/>
+<element name="E$98" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="272.1737" y="507.9746"/>
+<element name="E$99" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="272.1737" y="558.7746"/>
+<element name="E$100" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="272.1737" y="101.5746"/>
 <element name="E$72" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="237.0963" y="152.4"/>
 <element name="E$82" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="237.0963" y="203.2"/>
 <element name="E$83" library="uarm_alignment_base" package="1/4&quot;_RECT_CUT_OUT_1:1" value="" x="237.0963" y="254"/>
